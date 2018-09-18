@@ -1,0 +1,53 @@
+{
+  "name": "eth-parse-uri",
+  "version": "0.6.0",
+  "description": "Parse Ethereum EIP831 standard URI formats",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "webpack --config webpack.config.js",
+    "test": "BABEL_ENV=test mocha --require @babel/register --require @babel/polyfill --colors test/**/*.spec.js",
+    "test:watch": "npm run test -- -w"
+  },
+  "keywords": [
+    "ethereum",
+    "parser",
+    "uri",
+    "standard"
+  ],
+  "author": "Pedro Gomes <pedrouid@protonmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist",
+    "test": "test"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrouid/eth-parse-uri.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pedrouid/eth-parse-uri/issues"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.4.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "@babel/cli": "7.0.0",
+    "@babel/core": "7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "7.0.0",
+    "babel-loader": "^8.0.2",
+    "chai": "^4.1.2",
+    "mocha": "5.2.0",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0"
+  }
+}
