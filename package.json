@@ -1,7 +1,7 @@
 {
   "name": "eth-parse-uri",
-  "version": "0.6.2",
-  "description": "Parse Ethereum EIP831 standard URI formats",
+  "version": "0.6.3",
+  "description": "Parse Ethereum EIP831 Standard URI Format",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "webpack --config webpack.config.js",
