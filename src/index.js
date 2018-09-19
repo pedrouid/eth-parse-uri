@@ -1,7 +1,3 @@
-// Parse EIP681 and EIP1328 standard URI formats
-// (c) Pedro Gomes <pedrouid@protonmail.com>
-// MIT License
-
 function parseRequiredParams(path, config = null) {
   let _config = {
     erc681: {
@@ -87,7 +83,7 @@ function parseQueryParams(queryString) {
       ? pairs[i].match(/=.+/i)[0].substr(1)
       : ''
     if (key) {
-      parameters[decodeURIComponent(key)] = decodeURIComponent(value)
+      parameters[key] = value
     }
   }
   return parameters
@@ -97,6 +93,8 @@ function ethParseUri(string) {
   if (!string || typeof string !== 'string') {
     throw new Error('URI is not a string')
   }
+
+  string = decodeURIComponent(string)
 
   const pathStart = string.indexOf(':')
 

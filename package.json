@@ -1,6 +1,6 @@
 {
   "name": "eth-parse-uri",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "Parse Ethereum EIP831 Standard URI Format",
   "scripts": {
     "clean": "rm -rf dist",
@@ -15,7 +15,7 @@
     "uri",
     "standard"
   ],
-  "author": "Pedro Gomes <pedrouid@protonmail.com>",
+  "author": "WalletConnect <walletconnect.org>",
   "license": "MIT",
   "main": "dist/index.js",
   "directories": {
@@ -27,10 +27,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pedrouid/eth-parse-uri.git"
+    "url": "git+https://github.com/walletconnect/eth-parse-uri.git"
   },
   "bugs": {
-    "url": "https://github.com/pedrouid/eth-parse-uri/issues"
+    "url": "https://github.com/walletconnect/eth-parse-uri/issues"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
