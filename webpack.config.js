@@ -1,14 +1,15 @@
 /* eslint-disable */
 
-var path = require('path')
+const path = require('path')
+const pkg = require('./package.json')
 
 module.exports = {
   mode: 'production',
-  entry: ['@babel/polyfill', './src/index.js'],
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    library: 'eth-parse-uri',
+    filename: `index.js`,
+    library: pkg.name,
     libraryTarget: 'commonjs2'
   },
   module: {
@@ -21,9 +22,5 @@ module.exports = {
         }
       }
     ]
-  },
-  node: {
-    Buffer: true,
-    crypto: true
   }
 }
