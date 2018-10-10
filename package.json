@@ -1,13 +1,13 @@
 {
   "name": "eth-parse-uri",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "description": "Parse Ethereum EIP831 Standard URI Format",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "webpack --config webpack.config.js",
     "test": "BABEL_ENV=test mocha --require @babel/register --require @babel/polyfill --colors test/**/*.spec.js",
     "lint": "eslint src/**/*.js test/**/*.spec.js",
-    "check-package": "npm run clean && npm run test && npm run lint && npm run build"
+    "check": "npm run clean && npm run test && npm run lint && npm run build"
   },
   "keywords": [
     "ethereum",

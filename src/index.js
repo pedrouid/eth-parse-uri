@@ -83,7 +83,7 @@ function parseQueryParams(queryString) {
       ? pairs[i].match(/=.+/i)[0].substr(1)
       : ''
     if (key) {
-      parameters[key] = value
+      parameters[decodeURIComponent(key)] = decodeURIComponent(value)
     }
   }
   return parameters

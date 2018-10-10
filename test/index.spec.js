@@ -1,18 +1,12 @@
-/* global describe it beforeEach Buffer */
+/* global describe it beforeEach */
 
 import { expect } from 'chai'
 
 import ethParseUri from '../src/index'
 
-function testEncoding(testString, encoding) {
-  const buffer = Buffer.from(testString, encoding)
-  const result = buffer.toString(encoding)
-  return result === testString
-}
-
 // const uuidRegex = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi
-//
-// const addressRegex = /^(0x)?[0-9a-f]{40}$/i
+
+const base64Regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/gi
 
 const eip681URI =
   'ethereum:pay-0x89205a3a3b2a69de6dbf7f01ed13b2108b2c43e7/transfer?address=0x8e23ee67d1332ad560396262c48ffbb01f93d052&uint256=1'
@@ -143,8 +137,7 @@ describe('// ----------------- eth-parse-uri ----------------- //', () => {
 
     it('result symKey is base64', () => {
       const symKey = resultURI.symKey
-      const result = testEncoding(symKey, 'base64')
-      expect(result).to.exist
+      expect(base64Regex.test(symKey)).to.be.true
     })
   })
 })
