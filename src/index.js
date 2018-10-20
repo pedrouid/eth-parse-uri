@@ -106,7 +106,7 @@ function ethParseUri(string) {
 
   let requiredParams = parseRequiredParams(path)
 
-  const queryString = pathEnd ? string.substring(pathEnd) : ''
+  const queryString = typeof pathEnd !== 'undefined' ? string.substring(pathEnd) : ''
 
   const queryParams = parseQueryParams(queryString)
 

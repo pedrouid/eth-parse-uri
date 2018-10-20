@@ -1,6 +1,6 @@
 {
   "name": "eth-parse-uri",
-  "version": "0.6.9",
+  "version": "0.7.0",
   "description": "Parse Ethereum EIP831 Standard URI Format",
   "scripts": {
     "clean": "rm -rf dist",
