@@ -99,18 +99,19 @@ function ethParseUri(uri: string) {
 
   uri = decodeURIComponent(uri);
 
-  const pathStart = uri.indexOf(":");
+  const pathStart: number = uri.indexOf(":");
 
-  const pathEnd = uri.indexOf("?") !== -1 ? uri.indexOf("?") : undefined;
+  const pathEnd: number | undefined =
+    uri.indexOf("?") !== -1 ? uri.indexOf("?") : undefined;
 
-  const protocol = uri.substring(0, pathStart);
+  const protocol: string = uri.substring(0, pathStart);
 
-  let path = uri.substring(pathStart + 1, pathEnd);
+  const path: string = uri.substring(pathStart + 1, pathEnd);
 
-  let requiredParams = parseRequiredParams(path);
+  const requiredParams = parseRequiredParams(path);
 
-  const queryString =
-    typeof pathEnd !== "undefined" ? uri.substring(pathEnd) : "";
+  const queryString: string =
+    typeof pathEnd !== "undefined" ? uri.substr(pathEnd) : "";
 
   const queryParams = parseQueryParams(queryString);
 
