@@ -1,27 +1,23 @@
-/* eslint-disable */
-
-const path = require('path')
-const pkg = require('./package.json')
+const path = require("path");
+const pkg = require("./package.json");
 
 module.exports = {
-  mode: 'production',
-  entry: ['./src/index.js'],
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: `index.js`,
-    library: pkg.name,
-    libraryTarget: 'commonjs2'
+  mode: "production",
+  entry: {
+    index: "./src/index.ts"
   },
-  devtool: 'nosources-source-map',
+  output: {
+    path: path.resolve(__dirname, "lib"),
+    filename: "[name].js",
+    libraryTarget: "umd",
+    library: pkg.name,
+    umdNamedDefine: true
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
+  devtool: "source-map",
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader'
-        }
-      }
-    ]
+    rules: [{ test: /\.tsx?$/, loader: "ts-loader" }]
   }
-}
+};

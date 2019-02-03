@@ -1,13 +1,12 @@
 {
   "name": "eth-parse-uri",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Parse Ethereum EIP831 Standard URI Format",
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "webpack --config webpack.config.js",
-    "test": "BABEL_ENV=test mocha --require @babel/register --colors test/**/*.spec.js",
-    "lint": "eslint src/**/*.js test/**/*.spec.js",
-    "check": "npm run clean && npm run lint && npm run build && npm run test"
+    "clean": "rm -rf lib",
+    "build": "webpack",
+    "test": "mocha --require ./babel-polyfill.js test/**/*.spec.ts",
+    "check": "npm run clean && npm run build && npm run test"
   },
   "keywords": [
     "ethereum",
@@ -15,39 +14,42 @@
     "uri",
     "standard"
   ],
-  "author": "WalletConnect <walletconnect.org>",
+  "author": "Pedro Gomes <github.com/pedrouid>",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "directories": {
-    "lib": "dist",
+    "lib": "lib",
     "test": "test"
   },
   "files": [
-    "dist"
+    "lib",
+    "src"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/walletconnect/eth-parse-uri.git"
+    "url": "git+https://github.com/pedrouid/eth-parse-uri.git"
   },
   "bugs": {
-    "url": "https://github.com/walletconnect/eth-parse-uri/issues"
+    "url": "https://github.com/pedrouid/eth-parse-uri/issues"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/register": "7.0.0",
-    "babel-eslint": "^8.2.6",
-    "babel-loader": "^8.0.2",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
+    "@types/qr-image": "^3.2.1",
     "chai": "^4.1.2",
-    "eslint": "^5.4.0",
-    "eslint-loader": "^2.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^3.1.0",
+    "isomorphic-fetch": "^2.2.1",
     "mocha": "5.2.0",
-    "webpack": "^4.18.0",
-    "webpack-cli": "^3.1.0"
+    "terser": "^3.14.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.1.3",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.1"
   }
 }
