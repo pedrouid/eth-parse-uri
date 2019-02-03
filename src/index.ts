@@ -13,7 +13,7 @@ function parseRequiredParams(
     erc1328: {
       prefix: "wc",
       separators: ["@"],
-      keys: ["sessionId", "version"]
+      keys: ["topic", "version"]
     }
   };
 

@@ -6,13 +6,13 @@ import ethParseUri from "../src/index";
 
 // const uuidRegex = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi
 
-const base64Regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/gi;
+const hexRegex = /^[0-9a-f]+$/gi;
 
 const eip681URI =
   "ethereum:pay-0x89205a3a3b2a69de6dbf7f01ed13b2108b2c43e7/transfer?address=0x8e23ee67d1332ad560396262c48ffbb01f93d052&uint256=1";
 
 const eip1328URI =
-  "ethereum:wc-8a5e5bdc-a0e4-4702-ba63-8f1a5655744f@1?name=DappExample&bridge=https://bridge.example.com&symKey=KzpSTk1pezg5eTJRNmhWJmoxdFo6UDk2WlhaOyQ5N0U=";
+  "wc:8a5e5bdc-a0e4-4702-ba63-8f1a5655744f@1?bridge=https%3A%2F%2Fbridge.walletconnect.org&key=41791102999c339c844880b23950704cc43aa840f3739e365323cda4dfa89e7a";
 
 describe("// ----------------- eth-parse-uri ----------------- //", () => {
   describe("parse eip681 uri", () => {
@@ -104,40 +104,30 @@ describe("// ----------------- eth-parse-uri ----------------- //", () => {
       expect(prefix).to.be.a("string");
     });
 
-    it("result includes sessionId", () => {
-      const sessionId = resultURI.sessionId;
-      expect(sessionId).to.exist;
+    it("result includes topic", () => {
+      const topic = resultURI.topic;
+      expect(topic).to.exist;
     });
 
-    it("result sessionId is string", () => {
-      const sessionId = resultURI.sessionId;
-      expect(sessionId).to.be.a("string");
+    it("result topic is string", () => {
+      const topic = resultURI.topic;
+      expect(topic).to.be.a("string");
     });
 
-    // it('result sessionId is UUID', () => {
-    //   const sessionId = resultURI.sessionId
-    //   const regexTest = uuidRegex.test(sessionId)
+    // it('result topic is UUID', () => {
+    //   const topic = resultURI.topic
+    //   const regexTest = uuidRegex.test(topic)
     //   expect(regexTest).to.be.true
     // })
 
-    it("result includes name", () => {
-      const name = resultURI.name;
-      expect(name).to.exist;
+    it("result includes key", () => {
+      const key = resultURI.key;
+      expect(key).to.exist;
     });
 
-    it("result name is string", () => {
-      const name = resultURI.name;
-      expect(name).to.be.a("string");
-    });
-
-    it("result includes symKey", () => {
-      const symKey = resultURI.symKey;
-      expect(symKey).to.exist;
-    });
-
-    it("result symKey is base64", () => {
-      const symKey = resultURI.symKey;
-      expect(base64Regex.test(symKey)).to.be.true;
+    it("result key is hex", () => {
+      const key = resultURI.key;
+      expect(hexRegex.test(key)).to.be.true;
     });
   });
 });
