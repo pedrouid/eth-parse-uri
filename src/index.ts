@@ -1,4 +1,8 @@
-import { IRequiredParamsConfig } from "./types";
+interface IRequiredParamsConfig {
+  prefix: string;
+  separators: string[];
+  keys: string[];
+}
 
 function parseRequiredParams(
   path: string,
@@ -11,7 +15,7 @@ function parseRequiredParams(
       keys: ["targetAddress", "chainId", "functionName"]
     },
     erc1328: {
-      prefix: "wc",
+      prefix: "",
       separators: ["@"],
       keys: ["topic", "version"]
     }
@@ -21,10 +25,11 @@ function parseRequiredParams(
     _config = { ..._config, config };
   }
 
-  let standard =
-    Object.keys(_config).filter(key =>
-      path.startsWith(_config[key].prefix)
-    )[0] || "";
+  let standard = _config.prefix
+    ? Object.keys(_config).filter(key =>
+        path.startsWith(_config[key].prefix)
+      )[0] || ""
+    : "";
 
   if (!standard) {
     if (
