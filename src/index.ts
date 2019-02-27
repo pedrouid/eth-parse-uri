@@ -120,7 +120,7 @@ function ethParseUri(uri: string) {
 
   const queryParams = parseQueryParams(queryString);
 
-  return { protocol, ...requiredParams, ...queryParams };
+  return { protocol, ...requiredParams, params: queryParams };
 }
 
 export default ethParseUri;
